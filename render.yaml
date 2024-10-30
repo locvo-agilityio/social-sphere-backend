@@ -4,8 +4,8 @@ services:
     rootDir: backend
     env: node
     plan: free
-    buildCommand: pnpm install && pnpm run build && pnpm strapi import --force -f ./social-sphere.tar.gz
-    startCommand: pnpm run start
+    buildCommand: pnpm install && pnpm run build
+    startCommand: pnpm run start && pnpm strapi import -f ./social-sphere.tar.gz
     healthCheckPath: /_health
     envVars:
       - key: NODE_VERSION
