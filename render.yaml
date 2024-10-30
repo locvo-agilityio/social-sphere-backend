@@ -5,7 +5,7 @@ services:
     env: node
     plan: free
     buildCommand: pnpm install && pnpm run build
-    startCommand: pnpm strapi import -f ./social-sphere.tar.gz && pnpm run start
+    startCommand: pnpm run start && pnpm strapi import -f ./social-sphere.tar.gz
     healthCheckPath: /_health
     envVars:
       - key: NODE_VERSION
