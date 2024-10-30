@@ -4,7 +4,7 @@ services:
     rootDir: backend
     env: node
     plan: free
-    buildCommand: pnpm install && pnpm run build && if [ -f social-sphere.tar.gz ]; then mkdir -p .tmp && tar -xzf social-sphere.tar.gz -C .tmp && pnpm strapi import -f .tmp/export_*.tar.gz --force && rm -rf .tmp; fi
+    buildCommand: pnpm install && pnpm run build
     startCommand: pnpm run start
     healthCheckPath: /_health
     envVars:
