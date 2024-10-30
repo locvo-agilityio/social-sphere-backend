@@ -1,0 +1,24 @@
+{
+  "scripts": {
+    "frontend": "pnpm dev --prefix ../frontend/",
+    "backend": "pnpm dev --prefix ../backend/",
+    "clear": "cd frontend && rm -rf .next && rm -rf cache",
+    "setup:frontend": "cd frontend && pnpm install",
+    "setup:backend": "cd backend && pnpm install",
+    "setup": "pnpm install && pnpm setup:frontend && pnpm setup:backend",
+    "dev": "pnpm clear && concurrently \"cd frontend && pnpm dev\" \"cd backend && pnpm develop\"",
+    "pre:commit": "cd frontend && npx lint-staged",
+    "pre:push": "cd frontend && pnpm test && pnpm build",
+    "prepare": "husky",
+    "import": "cd backend && pnpm strapi import -f ../social-sphere.tar.gz",
+    "export": "cd backend && pnpm strapi export --no-encrypt -f ../social-sphere",
+    "render:build": "cd backend && pnpm install && pnpm build",
+    "render:start": "cd backend && pnpm start"
+  },
+  "dependencies": {
+    "concurrently": "^9.0.1"
+  },
+  "devDependencies": {
+    "husky": "^9.1.6"
+  }
+}
