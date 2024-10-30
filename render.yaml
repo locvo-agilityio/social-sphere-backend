@@ -1,10 +1,11 @@
 services:
   - type: web
     name: social-sphere-backend
+    rootDir: backend
     env: node
     plan: free
-    buildCommand: render:build
-    startCommand: render:start
+    buildCommand: pnpm install && pnpm run build
+    startCommand: pnpm run start
     healthCheckPath: /_health
     envVars:
       - key: NODE_VERSION
